@@ -1,3 +1,4 @@
+/* Default theme variables and base font settings. */
 :root {
   color-scheme: dark;
   font-family:
@@ -20,6 +21,7 @@
   --shadow: rgba(0, 0, 0, 0.35);
 }
 
+/* Light theme overrides used when the toggle sets data-theme="light". */
 :root[data-theme='light'] {
   color-scheme: light;
   background: #f6f8fc;
@@ -36,15 +38,18 @@
   --shadow: rgba(30, 41, 59, 0.12);
 }
 
+/* Makes padding and borders easier to size consistently. */
 * {
   box-sizing: border-box;
 }
 
+/* Gives the full page a theme-aware background color. */
 html {
   min-height: 100%;
   background: var(--background);
 }
 
+/* Overall body reset and decorative background treatment. */
 body {
   min-width: 320px;
   min-height: 100vh;
@@ -54,15 +59,18 @@ body {
     linear-gradient(145deg, var(--background), color-mix(in srgb, var(--background) 86%, #3ddc97));
 }
 
+/* Keeps buttons and inputs using the same font as the rest of the page. */
 button,
 input {
   font: inherit;
 }
 
+/* Shows a pointer cursor for clickable buttons. */
 button {
   cursor: pointer;
 }
 
+/* Visible keyboard focus styles for accessibility. */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible {
@@ -70,6 +78,7 @@ input:focus-visible {
   outline-offset: 4px;
 }
 
+/* Centers the app and limits the content width. */
 .page-shell {
   width: min(100%, 760px);
   min-height: 100vh;
@@ -77,6 +86,7 @@ input:focus-visible {
   padding: clamp(1rem, 4vw, 2rem);
 }
 
+/* Top profile section layout. */
 .profile {
   display: grid;
   gap: 1.35rem;
@@ -85,6 +95,7 @@ input:focus-visible {
   text-align: center;
 }
 
+/* Row that holds the availability pill and theme toggle. */
 .top-bar {
   display: flex;
   width: 100%;
@@ -93,6 +104,7 @@ input:focus-visible {
   gap: 1rem;
 }
 
+/* Shared pill styling for the status badge and theme button. */
 .status-pill,
 .theme-toggle {
   min-height: 2.75rem;
@@ -103,6 +115,7 @@ input:focus-visible {
   box-shadow: 0 14px 38px var(--shadow);
 }
 
+/* Availability badge content. */
 .status-pill {
   display: inline-flex;
   align-items: center;
@@ -112,6 +125,7 @@ input:focus-visible {
   font-weight: 700;
 }
 
+/* Small green dot inside the availability badge. */
 .status-dot {
   width: 0.65rem;
   height: 0.65rem;
@@ -120,6 +134,7 @@ input:focus-visible {
   box-shadow: 0 0 0 0.35rem color-mix(in srgb, var(--accent-strong) 18%, transparent);
 }
 
+/* Dark/light mode toggle button. */
 .theme-toggle {
   min-width: 5.25rem;
   padding: 0 1rem;
@@ -130,12 +145,14 @@ input:focus-visible {
     color 180ms ease;
 }
 
+/* Subtle hover feedback for the theme toggle. */
 .theme-toggle:hover {
   border-color: var(--accent);
   color: var(--text);
   transform: translateY(-2px);
 }
 
+/* Profile photo styling. */
 .avatar {
   width: clamp(7rem, 24vw, 10rem);
   aspect-ratio: 1;
@@ -146,12 +163,14 @@ input:focus-visible {
   object-fit: cover;
 }
 
+/* Text stack for name, role, location, and bio. */
 .identity {
   display: grid;
   gap: 0.6rem;
   justify-items: center;
 }
 
+/* Small uppercase label used above sections. */
 .eyebrow {
   margin: 0;
   color: var(--accent-strong);
@@ -161,12 +180,14 @@ input:focus-visible {
   text-transform: uppercase;
 }
 
+/* Removes default browser margins from common text elements. */
 h1,
 h2,
 p {
   margin: 0;
 }
 
+/* Main profile name. */
 h1 {
   max-width: 12ch;
   color: var(--text);
@@ -174,39 +195,46 @@ h1 {
   line-height: 0.95;
 }
 
+/* Link section heading. */
 h2 {
   color: var(--text);
   font-size: clamp(1.35rem, 4vw, 1.85rem);
   line-height: 1.1;
 }
 
+/* Shared muted text color for supporting profile text. */
 .role,
 .location,
 .bio {
   color: var(--muted);
 }
 
+/* Role text under the name. */
 .role {
   font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 800;
 }
 
+/* Location text under the role. */
 .location {
   font-weight: 700;
 }
 
+/* Short bio paragraph. */
 .bio {
   max-width: 40rem;
   font-size: 1rem;
   line-height: 1.7;
 }
 
+/* Section that contains the search input and link cards. */
 .links-section {
   display: grid;
   gap: 1rem;
   padding-bottom: 3rem;
 }
 
+/* Header row for the link section. */
 .section-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(13rem, 16rem);
@@ -214,6 +242,7 @@ h2 {
   gap: 1rem;
 }
 
+/* Search input used for the live filter JS feature. */
 .search-control input {
   width: 100%;
   min-height: 2.9rem;
@@ -225,15 +254,18 @@ h2 {
   box-shadow: 0 14px 38px var(--shadow);
 }
 
+/* Placeholder color inside the search input. */
 .search-control input::placeholder {
   color: var(--muted);
 }
 
+/* Vertical stack of link cards. */
 .link-list {
   display: grid;
   gap: 0.8rem;
 }
 
+/* Individual clickable link card. */
 .link-card {
   display: grid;
   grid-template-columns: 4.25rem minmax(0, 1fr) 2.5rem;
@@ -253,12 +285,14 @@ h2 {
     background 180ms ease;
 }
 
+/* Hover animation for each link card. */
 .link-card:hover {
   border-color: color-mix(in srgb, var(--accent) 75%, var(--border));
   background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
   transform: translateY(-3px);
 }
 
+/* Initials badge on the left side of each link card. */
 .link-icon {
   display: grid;
   width: 4.25rem;
@@ -271,17 +305,20 @@ h2 {
   font-weight: 900;
 }
 
+/* Text area inside each link card. */
 .link-copy {
   display: grid;
   gap: 0.25rem;
   min-width: 0;
 }
 
+/* Main title for each link. */
 .link-title {
   font-size: 1.2rem;
   font-weight: 900;
 }
 
+/* Supporting text and URL inside link cards. */
 .link-description,
 .link-url {
   overflow-wrap: anywhere;
@@ -289,14 +326,17 @@ h2 {
   line-height: 1.35;
 }
 
+/* Short description under the link title. */
 .link-description {
   font-size: 0.95rem;
 }
 
+/* Display URL at the bottom of each card. */
 .link-url {
   font-weight: 800;
 }
 
+/* Arrow on the right side of each link card. */
 .link-arrow {
   color: var(--muted);
   font-size: 1.3rem;
@@ -304,6 +344,7 @@ h2 {
   text-align: right;
 }
 
+/* Message shown when the search has no matching links. */
 .empty-state {
   display: grid;
   justify-items: center;
@@ -316,6 +357,7 @@ h2 {
   text-align: center;
 }
 
+/* Button that clears the search from the empty state. */
 .empty-state button {
   min-height: 2.5rem;
   border: 0;
@@ -326,6 +368,7 @@ h2 {
   font-weight: 900;
 }
 
+/* Hides text visually while keeping it available to screen readers. */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -337,6 +380,7 @@ h2 {
   border: 0;
 }
 
+/* Mobile layout adjustments for smaller screens. */
 @media (max-width: 620px) {
   .page-shell {
     padding-inline: 0.85rem;
@@ -366,6 +410,7 @@ h2 {
   }
 }
 
+/* Reduces animation for users who prefer less motion. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

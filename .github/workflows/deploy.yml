@@ -1,49 +1,60 @@
 name: Deploy static content to Pages
 
+#Runs this workflow after pushes to main, or manually from the Actions tab.
 "on":
   push:
     branches: ['main']
   workflow_dispatch:
 
+#Gives the workflow permission to publish to GitHub Pages.
 permissions:
   contents: read
   pages: write
   id-token: write
 
+#Prevents multiple Pages deployments from running at the same time.
 concurrency:
   group: 'pages'
   cancel-in-progress: true
 
 jobs:
   deploy:
+    #GitHub Pages uses this environment to track the deployed site URL.
     environment:
       name: "github-pages"
       url: "${{ steps.deployment.outputs.page_url }}"
     runs-on: ubuntu-latest
     steps:
+      #Downloads the repository files into the workflow runner.
       - name: Checkout
         uses: actions/checkout@v4
 
+      #Installs Node so the workflow can run npm commands.
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'npm'
 
+      #Installs dependencies exactly from package-lock.json.
       - name: Install dependencies
         run: npm ci
 
+      #Builds the Vite app into the dist folder.
       - name: Build
         run: npm run build
 
+      #Configures GitHub Pages for this workflow run.
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      #Uploads dist as the static website artifact.
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
 
+      #Publishes the uploaded artifact to GitHub Pages.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
