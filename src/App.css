@@ -368,6 +368,222 @@ h2 {
   font-weight: 900;
 }
 
+/* Senior feature section for the scheduled links demo. */
+.scheduled-section {
+  display: grid;
+  gap: 1rem;
+  padding: 0 0 3rem;
+}
+
+/* Heading and short explanation for the feature pitch section. */
+.feature-intro {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.feature-intro p:not(.eyebrow) {
+  max-width: 42rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Controls for filtering scheduled links and previewing the audience view. */
+.feature-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Tab row for all/live/upcoming/expired filters. */
+.filter-tabs {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+/* Individual filter tab button. */
+.filter-tab {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 0.8rem;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 900;
+  text-transform: capitalize;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+/* Small count bubble inside each tab. */
+.filter-tab span {
+  display: grid;
+  min-width: 1.35rem;
+  min-height: 1.35rem;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--text);
+  font-size: 0.78rem;
+}
+
+/* Active and hover states for filter tabs. */
+.filter-tab:hover,
+.filter-tab.active {
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+/* Checkbox control that switches to what visitors would actually see. */
+.preview-toggle {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0 0.8rem;
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* Two-column layout for scheduled cards and the metrics panel. */
+.scheduled-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 18rem);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* Stack of scheduled link cards. */
+.scheduled-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+/* Individual scheduled link card. */
+.scheduled-card {
+  display: grid;
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  box-shadow: 0 18px 50px var(--shadow);
+}
+
+/* Status-specific border colors make each schedule state easy to scan. */
+.scheduled-card.live {
+  border-color: color-mix(in srgb, var(--accent-strong) 65%, var(--border));
+}
+
+.scheduled-card.upcoming {
+  border-color: color-mix(in srgb, #ffb84d 65%, var(--border));
+}
+
+.scheduled-card.expired {
+  opacity: 0.76;
+}
+
+/* Title inside scheduled cards. */
+.scheduled-card h3,
+.metric-panel h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.scheduled-card p,
+.metric-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Small label that shows live/upcoming/expired. */
+.status-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 0.55rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+/* Row with the schedule window and preview link. */
+.schedule-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.schedule-meta a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+/* Mock success metrics that support the feature pitch. */
+.metric-panel {
+  display: grid;
+  gap: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--surface-strong) 88%, transparent);
+  box-shadow: 0 18px 50px var(--shadow);
+}
+
+/* Large metric number for quick visual impact. */
+.metric-number {
+  color: var(--accent-strong);
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+/* List of supporting mock metrics. */
+.metric-panel ul {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.metric-panel li {
+  display: grid;
+  gap: 0.2rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+.metric-panel li span {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.metric-panel li strong {
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
 /* Hides text visually while keeping it available to screen readers. */
 .visually-hidden {
   position: absolute;
@@ -407,6 +623,24 @@ h2 {
 
   .link-description {
     display: none;
+  }
+
+  .scheduled-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-controls {
+    align-items: stretch;
+  }
+
+  .filter-tabs,
+  .preview-toggle {
+    width: 100%;
+  }
+
+  .filter-tab {
+    flex: 1 1 calc(50% - 0.45rem);
+    justify-content: center;
   }
 }
 

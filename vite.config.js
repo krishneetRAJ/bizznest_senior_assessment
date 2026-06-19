@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react()],
 
   //Repo path to host on GitHub Pages. 
-  base: '/bizznest_technical_assessment/',
+  base: '/bizznest_senior_assessment/',
 });
